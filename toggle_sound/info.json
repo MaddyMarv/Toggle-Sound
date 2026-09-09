@@ -1,0 +1,18 @@
+{
+    "name": "Toggle Sound",
+    "author": "IndicaBunny",
+    "version": "1.0",
+    "homepage": "https://www.nexusmods.com/warhammer40kdarktide/mods/1288",
+    "source": "https://github.com/MaddyMarv/Toggle-Sound",
+    "funding": {
+        "kofi": "https://ko-fi.com/indicabunny"
+    },
+    "description": "Allows you to toggle off game sounds, all VC, or non-friends VC using menu toggles and keybinds.",
+    "order": {
+        "require": [],
+        "this_before": [],
+        "this_after": []
+    },
+    "localization": {}
+}
+
