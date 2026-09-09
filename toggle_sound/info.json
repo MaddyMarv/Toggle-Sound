@@ -7,7 +7,7 @@
     "funding": {
         "kofi": "https://ko-fi.com/indicabunny"
     },
-    "description": "Allows you to toggle off game sounds, all VC, or non-friends VC using menu toggles and keybinds.",
+    "description": "Allows you to toggle off game sounds, voice chat, or console players VC using menu toggles and keybinds.",
     "order": {
         "require": [],
         "this_before": [],
