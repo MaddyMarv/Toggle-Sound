@@ -54,7 +54,14 @@ local function _get_participant_name(participant)
 end
 
 local function _is_all_voice_chat_muted()
-	return mod:get("mute_all_voice_chat") or (mod:get("mute_master_sound") and mod:get("include_voice_chat_in_master"))
+	if mod:get("mute_master_sound") and mod:get("include_voice_chat_in_master") then
+		return true
+	end
+	local vc_muted = mod:get("mute_voice_chat") or mod:get("mute_all_voice_chat")
+	if vc_muted and not mod:get("voice_chat_ignore_friends") then
+		return true
+	end
+	return false
 end
 
 local function _apply_voice_chat_volume()
@@ -150,8 +157,10 @@ mod:hook("PlayerInfo", "is_voice_muted", function(func, self)
 		if _is_all_voice_chat_muted() then
 			return true
 		end
-		if mod:get("mute_non_friends_voice_chat") and not self:is_friend() then
-			return true
+		if mod:get("mute_voice_chat") or mod:get("mute_all_voice_chat") then
+			if not (mod:get("voice_chat_ignore_friends") and self:is_friend()) then
+				return true
+			end
 		end
 		if mod:get("mute_console_voice_chat") and _is_console_player(self) then
 			if not (mod:get("console_voice_chat_ignore_friends") and self:is_friend()) then
@@ -242,25 +251,19 @@ mod.update = function(dt)
 	end
 end
 
-mod.cb_toggle_all_voice_chat = function()
+mod.cb_toggle_voice_chat = function()
 	if not mod:is_enabled() then
 		return
 	end
-	local new_val = not mod:get("mute_all_voice_chat")
-	mod:set("mute_all_voice_chat", new_val, true)
+	local new_val = not (mod:get("mute_voice_chat") or mod:get("mute_all_voice_chat"))
+	mod:set("mute_voice_chat", new_val, true)
+	mod:set("mute_all_voice_chat", false, true)
+	mod:set("mute_non_friends_voice_chat", false, true)
 	_apply_voice_chat_volume()
-	_notify_voice(new_val and "msg_voice_all_muted" or "msg_voice_all_unmuted")
+	_notify_voice(new_val and "msg_voice_muted" or "msg_voice_unmuted")
 end
-
-mod.cb_toggle_non_friends_voice_chat = function()
-	if not mod:is_enabled() then
-		return
-	end
-	local new_val = not mod:get("mute_non_friends_voice_chat")
-	mod:set("mute_non_friends_voice_chat", new_val, true)
-	_apply_voice_chat_volume()
-	_notify_voice(new_val and "msg_voice_non_friends_muted" or "msg_voice_non_friends_unmuted")
-end
+mod.cb_toggle_all_voice_chat = mod.cb_toggle_voice_chat
+mod.cb_toggle_non_friends_voice_chat = mod.cb_toggle_voice_chat
 
 mod.cb_toggle_console_voice_chat = function()
 	if not mod:is_enabled() then
@@ -319,7 +322,7 @@ end
 mod.on_setting_changed = function(setting_id)
 	if setting_id == "mute_master_sound" or setting_id == "include_voice_chat_in_master" then
 		_apply_master_sound()
-	elseif setting_id == "mute_all_voice_chat" or setting_id == "mute_non_friends_voice_chat" or setting_id == "mute_console_voice_chat" or setting_id == "console_voice_chat_ignore_friends" then
+	elseif setting_id == "mute_voice_chat" or setting_id == "voice_chat_ignore_friends" or setting_id == "mute_console_voice_chat" or setting_id == "console_voice_chat_ignore_friends" or setting_id == "mute_all_voice_chat" or setting_id == "mute_non_friends_voice_chat" then
 		_apply_voice_chat_volume()
 	elseif setting_id == "mute_music" then
 		_apply_music()
@@ -337,7 +340,7 @@ mod.on_all_mods_loaded = function()
 	if mod:get("mute_master_sound") then
 		_apply_master_sound()
 	end
-	if mod:get("mute_all_voice_chat") or mod:get("mute_non_friends_voice_chat") or mod:get("mute_console_voice_chat") then
+	if mod:get("mute_voice_chat") or mod:get("mute_all_voice_chat") or mod:get("mute_console_voice_chat") then
 		_apply_voice_chat_volume()
 	end
 	if mod:get("mute_music") then
@@ -364,6 +367,7 @@ mod.cb_unmute_all = function()
 	mod:set("mute_master_sound", false, true)
 	mod:set("mute_music", false, true)
 	mod:set("mute_sfx", false, true)
+	mod:set("mute_voice_chat", false, true)
 	mod:set("mute_all_voice_chat", false, true)
 	mod:set("mute_non_friends_voice_chat", false, true)
 	mod:set("mute_console_voice_chat", false, true)

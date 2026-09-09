@@ -3,7 +3,7 @@ return {
 		en = "Toggle Sound",
 	},
 	mod_description = {
-		en = "Allows you to toggle off game sounds, all VC, or non-friends VC using menu toggles and keybinds.",
+		en = "Allows you to toggle off game sounds, voice chat, or console players VC using menu toggles and keybinds.",
 	},
 
 	tab_sound = {
@@ -89,35 +89,26 @@ return {
 	group_voice_chat = {
 		en = "Voice Chat Settings",
 	},
-	subgroup_all_voice = {
-		en = "All Voice Chat",
+	subgroup_voice_chat = {
+		en = "Voice Chat",
 	},
-	mute_all_voice_chat = {
-		en = "Mute All VC",
+	mute_voice_chat = {
+		en = "Mute Voice Chat",
 	},
-	mute_all_voice_chat_description = {
-		en = "Mutes incoming VC from all players.",
+	mute_voice_chat_description = {
+		en = "Mutes incoming voice chat.",
 	},
-	keybind_mute_all_voice_chat = {
-		en = "Toggle All VC Keybind",
+	keybind_mute_voice_chat = {
+		en = "Toggle Voice Chat Keybind",
 	},
-	keybind_mute_all_voice_chat_description = {
-		en = "Hot key to toggle incoming VC from all players on or off.",
+	keybind_mute_voice_chat_description = {
+		en = "Hot key to toggle incoming voice chat on or off.",
 	},
-	subgroup_non_friends = {
-		en = "Non-Friends Filter",
+	voice_chat_ignore_friends = {
+		en = "Ignore Friends",
 	},
-	mute_non_friends_voice_chat = {
-		en = "Mute Non-Friends VC",
-	},
-	mute_non_friends_voice_chat_description = {
-		en = "Mutes incoming VC from any player who is not on your friends list.",
-	},
-	keybind_mute_non_friends_voice_chat = {
-		en = "Toggle Non-Friends VC Keybind",
-	},
-	keybind_mute_non_friends_voice_chat_description = {
-		en = "Hot key to toggle muting VC from non-friends on or off.",
+	voice_chat_ignore_friends_description = {
+		en = "Prevents players on your friends list from being muted when voice chat is muted.",
 	},
 	subgroup_console_voice = {
 		en = "Console Players",
@@ -196,17 +187,11 @@ return {
 	msg_master_unmuted = {
 		en = "[ToggleSound] Master sound unmuted.",
 	},
-	msg_voice_all_muted = {
-		en = "[ToggleSound] All VC muted.",
+	msg_voice_muted = {
+		en = "[ToggleSound] Voice chat muted.",
 	},
-	msg_voice_all_unmuted = {
-		en = "[ToggleSound] All VC unmuted.",
-	},
-	msg_voice_non_friends_muted = {
-		en = "[ToggleSound] Non-friends VC muted.",
-	},
-	msg_voice_non_friends_unmuted = {
-		en = "[ToggleSound] Non-friends VC unmuted.",
+	msg_voice_unmuted = {
+		en = "[ToggleSound] Voice chat unmuted.",
 	},
 	msg_voice_console_muted = {
 		en = "[ToggleSound] Console players VC muted.",

@@ -100,40 +100,26 @@ return {
 				tab = mod:localize("tab_voice_chat"),
 				sub_widgets = {
 					{
-						setting_id = "subgroup_all_voice",
+						setting_id = "subgroup_voice_chat",
 						type = "group",
 						sub_widgets = {
 							{
-								setting_id = "mute_all_voice_chat",
+								setting_id = "mute_voice_chat",
 								type = "checkbox",
 								default_value = false,
 							},
 							{
-								setting_id = "keybind_mute_all_voice_chat",
+								setting_id = "keybind_mute_voice_chat",
 								type = "keybind",
 								default_value = {},
 								keybind_trigger = "pressed",
 								keybind_type = "function_call",
-								function_name = "cb_toggle_all_voice_chat",
+								function_name = "cb_toggle_voice_chat",
 							},
-						},
-					},
-					{
-						setting_id = "subgroup_non_friends",
-						type = "group",
-						sub_widgets = {
 							{
-								setting_id = "mute_non_friends_voice_chat",
+								setting_id = "voice_chat_ignore_friends",
 								type = "checkbox",
-								default_value = false,
-							},
-							{
-								setting_id = "keybind_mute_non_friends_voice_chat",
-								type = "keybind",
-								default_value = {},
-								keybind_trigger = "pressed",
-								keybind_type = "function_call",
-								function_name = "cb_toggle_non_friends_voice_chat",
+								default_value = true,
 							},
 						},
 					},
