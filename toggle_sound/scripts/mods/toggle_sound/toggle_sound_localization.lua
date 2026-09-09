@@ -29,13 +29,13 @@ return {
 		en = "Mutes all game audio.",
 	},
 	keybind_mute_master_sound = {
-		en = "Toggle Master Sound Keybind",
+		en = "Toggle Master Sound Hotkey",
 	},
 	keybind_mute_master_sound_description = {
 		en = "Hot key to toggle all game audio on or off.",
 	},
 	keybind_unmute_all = {
-		en = "Unmute All Keybind",
+		en = "Unmute All Hotkey",
 	},
 	keybind_unmute_all_description = {
 		en = "Hot key to instantly unmute master sound, music, SFX, voice chat, and reset hot mic mutes.",
@@ -56,7 +56,7 @@ return {
 		en = "Mutes in-game background and combat music.",
 	},
 	keybind_mute_music = {
-		en = "Toggle Music Keybind",
+		en = "Toggle Music Hotkey",
 	},
 	keybind_mute_music_description = {
 		en = "Hot key to toggle in-game music on or off.",
@@ -71,7 +71,7 @@ return {
 		en = "Mutes in-game sound effects.",
 	},
 	keybind_mute_sfx = {
-		en = "Toggle Sound Effects Keybind",
+		en = "Toggle Sound Effects Hotkey",
 	},
 	keybind_mute_sfx_description = {
 		en = "Hot key to toggle sound effects on or off.",
@@ -99,7 +99,7 @@ return {
 		en = "Mutes incoming voice chat.",
 	},
 	keybind_mute_voice_chat = {
-		en = "Toggle Voice Chat Keybind",
+		en = "Toggle Voice Chat Hotkey",
 	},
 	keybind_mute_voice_chat_description = {
 		en = "Hot key to toggle incoming voice chat on or off.",
@@ -120,7 +120,7 @@ return {
 		en = "Mutes incoming voice chat from players on Xbox or PlayStation.",
 	},
 	keybind_mute_console_voice_chat = {
-		en = "Toggle Console Players VC Keybind",
+		en = "Toggle Console Players VC Hotkey",
 	},
 	keybind_mute_console_voice_chat_description = {
 		en = "Hot key to toggle muting voice chat from console players.",
@@ -154,7 +154,7 @@ return {
 		en = "Automatically mutes any player whose microphone stays open continuously beyond the threshold.",
 	},
 	keybind_toggle_hot_mic_detector = {
-		en = "Toggle Auto-Mute Hot Mics Keybind",
+		en = "Toggle Auto-Mute Hot Mics Hotkey",
 	},
 	keybind_toggle_hot_mic_detector_description = {
 		en = "Hot key to toggle automatic muting of hot mics on or off.",
@@ -178,7 +178,7 @@ return {
 		en = "Displays a chat notification when a player is auto-muted by the hot mic detector.",
 	},
 	keybind_reset_hot_mics = {
-		en = "Reset Hot Mic Mutes Keybind",
+		en = "Reset Hot Mic Mutes Hotkey",
 	},
 	keybind_reset_hot_mics_description = {
 		en = "Hot key to unmute all players who were auto-muted by the hot mic detector.",
