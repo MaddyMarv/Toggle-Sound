@@ -130,6 +130,30 @@ return {
 						},
 					},
 					{
+						setting_id = "subgroup_console_voice",
+						type = "group",
+						sub_widgets = {
+							{
+								setting_id = "mute_console_voice_chat",
+								type = "checkbox",
+								default_value = false,
+							},
+							{
+								setting_id = "keybind_mute_console_voice_chat",
+								type = "keybind",
+								default_value = {},
+								keybind_trigger = "pressed",
+								keybind_type = "function_call",
+								function_name = "cb_toggle_console_voice_chat",
+							},
+							{
+								setting_id = "console_voice_chat_ignore_friends",
+								type = "checkbox",
+								default_value = true,
+							},
+						},
+					},
+					{
 						setting_id = "subgroup_voice_notifications",
 						type = "group",
 						sub_widgets = {
@@ -178,12 +202,7 @@ return {
 							{
 								setting_id = "hot_mic_notify",
 								type = "checkbox",
-								default_value = false,
-							},
-							{
-								setting_id = "hot_mic_auto_mute",
-								type = "checkbox",
-								default_value = false,
+								default_value = true,
 							},
 							{
 								setting_id = "keybind_reset_hot_mics",

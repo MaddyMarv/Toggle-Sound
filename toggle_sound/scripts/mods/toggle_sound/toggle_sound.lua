@@ -126,6 +126,14 @@ local function _restore_all_sound()
 	_update_voice_chat_participants()
 end
 
+local function _is_console_player(player_info)
+	if not player_info or not player_info.platform then
+		return false
+	end
+	local platform = player_info:platform()
+	return platform == "xbox" or platform == "psn" or platform == "ps5"
+end
+
 mod:hook("PlayerInfo", "is_voice_muted", function(func, self)
 	if mod:is_enabled() then
 		if _is_all_voice_chat_muted() then
@@ -133,6 +141,11 @@ mod:hook("PlayerInfo", "is_voice_muted", function(func, self)
 		end
 		if mod:get("mute_non_friends_voice_chat") and not self:is_friend() then
 			return true
+		end
+		if mod:get("mute_console_voice_chat") and _is_console_player(self) then
+			if not (mod:get("console_voice_chat_ignore_friends") and self:is_friend()) then
+				return true
+			end
 		end
 		local account_id = self:account_id()
 		if account_id and _hot_muted_accounts[account_id] then
@@ -178,7 +191,6 @@ mod.update = function(dt)
 	end
 
 	local threshold = mod:get("hot_mic_threshold_seconds") or 8
-	local auto_mute = mod:get("hot_mic_auto_mute")
 	local notify = mod:get("hot_mic_notify")
 	local ignore_friends = mod:get("hot_mic_ignore_friends")
 
@@ -200,16 +212,11 @@ mod.update = function(dt)
 
 						if current_dur >= threshold and not _hot_mic_flagged[account_id] then
 							_hot_mic_flagged[account_id] = true
-							local player_name = _get_participant_name(participant)
-
-							if auto_mute then
-								_hot_muted_accounts[account_id] = true
-								_update_voice_chat_participants()
-								if notify then
-									mod:echo_localized("msg_hot_mic_muted", player_name)
-								end
-							elseif notify then
-								mod:echo_localized("msg_hot_mic_detected", player_name)
+							_hot_muted_accounts[account_id] = true
+							_update_voice_chat_participants()
+							if notify then
+								local player_name = _get_participant_name(participant)
+								mod:echo_localized("msg_hot_mic_muted", player_name)
 							end
 						end
 					else
@@ -242,6 +249,16 @@ mod.cb_toggle_non_friends_voice_chat = function()
 	mod:set("mute_non_friends_voice_chat", new_val, true)
 	_apply_voice_chat_volume()
 	_notify_voice(new_val and "msg_voice_non_friends_muted" or "msg_voice_non_friends_unmuted")
+end
+
+mod.cb_toggle_console_voice_chat = function()
+	if not mod:is_enabled() then
+		return
+	end
+	local new_val = not mod:get("mute_console_voice_chat")
+	mod:set("mute_console_voice_chat", new_val, true)
+	_apply_voice_chat_volume()
+	_notify_voice(new_val and "msg_voice_console_muted" or "msg_voice_console_unmuted")
 end
 
 mod.cb_reset_hot_mics = function()
@@ -291,12 +308,17 @@ end
 mod.on_setting_changed = function(setting_id)
 	if setting_id == "mute_master_sound" or setting_id == "include_voice_chat_in_master" then
 		_apply_master_sound()
-	elseif setting_id == "mute_all_voice_chat" or setting_id == "mute_non_friends_voice_chat" then
+	elseif setting_id == "mute_all_voice_chat" or setting_id == "mute_non_friends_voice_chat" or setting_id == "mute_console_voice_chat" or setting_id == "console_voice_chat_ignore_friends" then
 		_apply_voice_chat_volume()
 	elseif setting_id == "mute_music" then
 		_apply_music()
 	elseif setting_id == "mute_sfx" then
 		_apply_sfx()
+	elseif setting_id == "enable_hot_mic_detector" and not mod:get("enable_hot_mic_detector") then
+		_hot_muted_accounts = {}
+		_hot_mic_flagged = {}
+		_speaking_durations = {}
+		_update_voice_chat_participants()
 	end
 end
 
@@ -304,7 +326,7 @@ mod.on_all_mods_loaded = function()
 	if mod:get("mute_master_sound") then
 		_apply_master_sound()
 	end
-	if mod:get("mute_all_voice_chat") or mod:get("mute_non_friends_voice_chat") then
+	if mod:get("mute_all_voice_chat") or mod:get("mute_non_friends_voice_chat") or mod:get("mute_console_voice_chat") then
 		_apply_voice_chat_volume()
 	end
 	if mod:get("mute_music") then
@@ -322,3 +344,38 @@ end
 mod.on_unload = function()
 	_restore_all_sound()
 end
+
+local function _handle_mute_command(subcommand)
+	subcommand = subcommand and string.lower(subcommand)
+
+	if not subcommand or subcommand == "" or subcommand == "all" or subcommand == "master" then
+		mod.cb_toggle_master_sound()
+	elseif subcommand == "music" then
+		mod.cb_toggle_music()
+	elseif subcommand == "sfx" then
+		mod.cb_toggle_sfx()
+	elseif subcommand == "vc" or subcommand == "voice" then
+		mod.cb_toggle_all_voice_chat()
+	elseif subcommand == "nonfriend" or subcommand == "nonfriends" or subcommand == "non-friends" or subcommand == "non_friends" or subcommand == "friends" then
+		mod.cb_toggle_non_friends_voice_chat()
+	elseif subcommand == "console" or subcommand == "consoles" or subcommand == "xbox" or subcommand == "psn" or subcommand == "ps5" then
+		mod.cb_toggle_console_voice_chat()
+	elseif subcommand == "reset" then
+		mod.cb_reset_hot_mics()
+	elseif subcommand == "help" then
+		mod:echo_localized("cmd_mute_help_header")
+		mod:echo_localized("cmd_mute_help_all")
+		mod:echo_localized("cmd_mute_help_music")
+		mod:echo_localized("cmd_mute_help_sfx")
+		mod:echo_localized("cmd_mute_help_vc")
+		mod:echo_localized("cmd_mute_help_nonfriends")
+		mod:echo_localized("cmd_mute_help_console")
+		mod:echo_localized("cmd_mute_help_reset")
+		mod:echo_localized("cmd_mute_help_help")
+	else
+		mod:echo_localized("cmd_mute_unknown", subcommand)
+	end
+end
+
+mod:command("mute", mod:localize("cmd_mute_desc"), _handle_mute_command)
+mod:command("unmute", mod:localize("cmd_mute_desc"), _handle_mute_command)

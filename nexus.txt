@@ -1,0 +1,44 @@
+Allows you to toggle off game sounds, all VC, or non-friends VC using menu toggles and keybinds. Includes hot mic detection with auto-mute and chat notifications.
+
+[b]Options:[/b]
+
+[b]Sound[/b]
+- Mute Master Sound
+- Toggle Master Sound (Hotkey)
+- Include VC in Master Mute
+- Mute Music
+- Toggle Music (Hotkey)
+- Mute Sound Effects
+- Toggle Sound Effects (Hotkey)
+- Show Chat Notifications
+
+[b]Voice Chat[/b]
+- Mute All VC
+- Toggle All VC (Hotkey)
+- Mute Non-Friends VC
+- Toggle Non-Friends VC (Hotkey)
+- Mute Console Players VC
+- Toggle Console Players VC (Hotkey)
+- Ignore Friends
+- Show Chat Notifications
+
+[b]Hot Mic[/b]
+- Auto-Mute Hot Mics
+- Transmission Threshold (Seconds)
+- Ignore Friends
+- Show Chat Notifications
+- Reset Hot Mic Mutes (Hotkey)
+
+[b]Chat Commands:[/b]
+- [b]/mute[/b] or [b]/mute all[/b] - Toggle master sound
+- [b]/mute music[/b] - Toggle music
+- [b]/mute sfx[/b] - Toggle sound effects
+- [b]/mute vc[/b] - Toggle all voice chat
+- [b]/mute nonfriends[/b] - Toggle non-friends voice chat
+- [b]/mute console[/b] - Toggle console players voice chat
+- [b]/mute reset[/b] - Reset hot mic auto-mutes
+- [b]/mute help[/b] - Show available commands
+(Note: /unmute can also be used)
+
+[b]Links:[/b]
+[url=https://github.com/MaddyMarv/Toggle-Sound]Source Code[/url] | [url=https://www.nexusmods.com/profile/indicabunny]Nexus Mods Profile[/url] | [url=https://ko-fi.com/indicabunny]Support Me on Ko-fi[/url]

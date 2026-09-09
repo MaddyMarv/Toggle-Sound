@@ -113,6 +113,27 @@ return {
 	keybind_mute_non_friends_voice_chat_description = {
 		en = "Hot key to toggle muting VC from non-friends on or off.",
 	},
+	subgroup_console_voice = {
+		en = "Console Players",
+	},
+	mute_console_voice_chat = {
+		en = "Mute Console Players VC",
+	},
+	mute_console_voice_chat_description = {
+		en = "Mutes incoming voice chat from players on Xbox or PlayStation.",
+	},
+	keybind_mute_console_voice_chat = {
+		en = "Toggle Console Players VC Keybind",
+	},
+	keybind_mute_console_voice_chat_description = {
+		en = "Hot key to toggle muting voice chat from console players.",
+	},
+	console_voice_chat_ignore_friends = {
+		en = "Ignore Friends",
+	},
+	console_voice_chat_ignore_friends_description = {
+		en = "Prevents console players on your friends list from being muted.",
+	},
 	subgroup_voice_notifications = {
 		en = "Notifications",
 	},
@@ -130,10 +151,10 @@ return {
 		en = "Detection Settings",
 	},
 	enable_hot_mic_detector = {
-		en = "Enable Hot Mic Detector",
+		en = "Auto-Mute Hot Mics",
 	},
 	enable_hot_mic_detector_description = {
-		en = "Monitors players' VC transmissions and detects stuck open mics.",
+		en = "Automatically mutes any player whose microphone stays open continuously beyond the threshold.",
 	},
 	hot_mic_threshold_seconds = {
 		en = "Transmission Threshold (Seconds)",
@@ -145,22 +166,16 @@ return {
 		en = "Ignore Friends",
 	},
 	hot_mic_ignore_friends_description = {
-		en = "Prevents players on your friends list from being auto-muted or flagged by the hot mic detector.",
+		en = "Prevents players on your friends list from being auto-muted by the hot mic detector.",
 	},
 	subgroup_hot_mic_actions = {
-		en = "Actions & Muting",
+		en = "Actions & Controls",
 	},
 	hot_mic_notify = {
 		en = "Show Chat Notifications",
 	},
 	hot_mic_notify_description = {
-		en = "Displays a chat notification when a player exceeds the continuous transmission threshold.",
-	},
-	hot_mic_auto_mute = {
-		en = "Auto-Mute Hot Mics",
-	},
-	hot_mic_auto_mute_description = {
-		en = "Automatically mutes any player who exceeds the continuous transmission threshold.",
+		en = "Displays a chat notification when a player is auto-muted by the hot mic detector.",
 	},
 	keybind_reset_hot_mics = {
 		en = "Reset Hot Mic Mutes Keybind",
@@ -187,6 +202,12 @@ return {
 	msg_voice_non_friends_unmuted = {
 		en = "[ToggleSound] Non-friends VC unmuted.",
 	},
+	msg_voice_console_muted = {
+		en = "[ToggleSound] Console players VC muted.",
+	},
+	msg_voice_console_unmuted = {
+		en = "[ToggleSound] Console players VC unmuted.",
+	},
 	msg_music_muted = {
 		en = "[ToggleSound] Music muted.",
 	},
@@ -199,13 +220,43 @@ return {
 	msg_sfx_unmuted = {
 		en = "[ToggleSound] Sound effects unmuted.",
 	},
-	msg_hot_mic_detected = {
-		en = "[ToggleSound] %s appears to have an open/hot mic!",
-	},
 	msg_hot_mic_muted = {
 		en = "[ToggleSound] %s was auto-muted (open/hot mic detected).",
 	},
 	msg_hot_mics_reset = {
 		en = "[ToggleSound] All hot mic auto-mutes have been reset.",
+	},
+	cmd_mute_desc = {
+		en = "Toggle sound, music, SFX, and voice chat.",
+	},
+	cmd_mute_help_header = {
+		en = "[ToggleSound] Commands:",
+	},
+	cmd_mute_help_all = {
+		en = "/mute [all] - Toggle Master Sound",
+	},
+	cmd_mute_help_music = {
+		en = "/mute music - Toggle Music",
+	},
+	cmd_mute_help_sfx = {
+		en = "/mute sfx - Toggle Sound Effects",
+	},
+	cmd_mute_help_vc = {
+		en = "/mute vc - Toggle All Voice Chat",
+	},
+	cmd_mute_help_nonfriends = {
+		en = "/mute nonfriends - Toggle Non-Friends Voice Chat",
+	},
+	cmd_mute_help_console = {
+		en = "/mute console - Toggle Console Players VC",
+	},
+	cmd_mute_help_reset = {
+		en = "/mute reset - Reset Hot Mic Auto-Mutes",
+	},
+	cmd_mute_help_help = {
+		en = "/mute help - Show available commands",
+	},
+	cmd_mute_unknown = {
+		en = "[ToggleSound] Unknown option '%s'. Type '/mute help' for options.",
 	},
 }

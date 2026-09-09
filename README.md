@@ -19,14 +19,27 @@ Allows you to toggle off game sounds, all VC, or non-friends VC using menu toggl
 - Toggle All VC (Hotkey)
 - Mute Non-Friends VC
 - Toggle Non-Friends VC (Hotkey)
+- Mute Console Players VC
+- Toggle Console Players VC (Hotkey)
+- Ignore Friends
 - Show Chat Notifications
 
 **Hot Mic**
-- Enable Hot Mic Detector
+- Auto-Mute Hot Mics
 - Transmission Threshold (Seconds)
 - Ignore Friends
 - Show Chat Notifications
-- Auto-Mute Hot Mics
 - Reset Hot Mic Mutes (Hotkey)
+
+**Chat Commands:**
+- `/mute` or `/mute all` - Toggle master sound
+- `/mute music` - Toggle music
+- `/mute sfx` - Toggle sound effects
+- `/mute vc` - Toggle all voice chat
+- `/mute nonfriends` - Toggle non-friends voice chat
+- `/mute console` - Toggle console players voice chat
+- `/mute reset` - Reset hot mic auto-mutes
+- `/mute help` - Show available commands
+*(Note: `/unmute` can also be used)*
 
 🔗 **Links:** [Source Code](https://github.com/MaddyMarv/Toggle-Sound) | [Nexus Mods Profile](https://www.nexusmods.com/profile/indicabunny) | [Support Me on Ko-fi](https://ko-fi.com/indicabunny)
