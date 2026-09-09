@@ -1,4 +1,5 @@
 ﻿### [Toggle Sound](https://www.nexusmods.com/warhammer40kdarktide/mods/1288)
+<img width="1080" height="1080" alt="image" src="https://github.com/user-attachments/assets/d65bce07-9ea2-4a7f-9d8f-313794770a37" />
 
 Allows you to toggle off game sounds, voice chat, or console players VC using menu toggles and keybinds. Includes hot mic detection with auto-mute and chat notifications.
 
