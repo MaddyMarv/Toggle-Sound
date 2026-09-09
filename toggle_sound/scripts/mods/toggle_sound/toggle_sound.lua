@@ -275,6 +275,23 @@ mod.cb_toggle_console_voice_chat = function()
 	_notify_voice(new_val and "msg_voice_console_muted" or "msg_voice_console_unmuted")
 end
 
+mod.cb_toggle_hot_mic_detector = function()
+	if not mod:is_enabled() then
+		return
+	end
+	local new_val = not mod:get("enable_hot_mic_detector")
+	mod:set("enable_hot_mic_detector", new_val, true)
+	if not new_val then
+		_hot_muted_accounts = {}
+		_hot_mic_flagged = {}
+		_speaking_durations = {}
+		_update_voice_chat_participants()
+	end
+	if mod:get("hot_mic_notify") then
+		mod:echo_localized(new_val and "msg_hot_mic_detector_enabled" or "msg_hot_mic_detector_disabled")
+	end
+end
+
 mod.cb_reset_hot_mics = function()
 	if not mod:is_enabled() then
 		return

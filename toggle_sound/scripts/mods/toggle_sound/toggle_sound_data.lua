@@ -175,6 +175,14 @@ return {
 								default_value = false,
 							},
 							{
+								setting_id = "keybind_toggle_hot_mic_detector",
+								type = "keybind",
+								default_value = {},
+								keybind_trigger = "pressed",
+								keybind_type = "function_call",
+								function_name = "cb_toggle_hot_mic_detector",
+							},
+							{
 								setting_id = "hot_mic_threshold_seconds",
 								type = "numeric",
 								default_value = 8,
@@ -187,12 +195,6 @@ return {
 								type = "checkbox",
 								default_value = true,
 							},
-						},
-					},
-					{
-						setting_id = "subgroup_hot_mic_actions",
-						type = "group",
-						sub_widgets = {
 							{
 								setting_id = "hot_mic_notify",
 								type = "checkbox",

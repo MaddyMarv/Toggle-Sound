@@ -153,6 +153,12 @@ return {
 	enable_hot_mic_detector_description = {
 		en = "Automatically mutes any player whose microphone stays open continuously beyond the threshold.",
 	},
+	keybind_toggle_hot_mic_detector = {
+		en = "Toggle Auto-Mute Hot Mics Keybind",
+	},
+	keybind_toggle_hot_mic_detector_description = {
+		en = "Hot key to toggle automatic muting of hot mics on or off.",
+	},
 	hot_mic_threshold_seconds = {
 		en = "Transmission Threshold (Seconds)",
 	},
@@ -164,9 +170,6 @@ return {
 	},
 	hot_mic_ignore_friends_description = {
 		en = "Prevents players on your friends list from being auto-muted by the hot mic detector.",
-	},
-	subgroup_hot_mic_actions = {
-		en = "Actions & Controls",
 	},
 	hot_mic_notify = {
 		en = "Show Chat Notifications",
@@ -216,6 +219,12 @@ return {
 	},
 	msg_hot_mics_reset = {
 		en = "[ToggleSound] All hot mic auto-mutes have been reset.",
+	},
+	msg_hot_mic_detector_enabled = {
+		en = "[ToggleSound] Auto-mute hot mics enabled.",
+	},
+	msg_hot_mic_detector_disabled = {
+		en = "[ToggleSound] Auto-mute hot mics disabled.",
 	},
 	msg_all_unmuted = {
 		en = "[ToggleSound] All sound, music, SFX, and voice chat unmuted.",

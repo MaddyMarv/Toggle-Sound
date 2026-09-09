@@ -27,6 +27,7 @@ Allows you to toggle off game sounds, voice chat, or console players VC using me
 
 **Hot Mic**
 - Auto-Mute Hot Mics
+- Toggle Auto-Mute Hot Mics (Hotkey)
 - Transmission Threshold (Seconds)
 - Ignore Friends
 - Show Chat Notifications
