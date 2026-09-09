@@ -29,6 +29,14 @@ return {
 								function_name = "cb_toggle_master_sound",
 							},
 							{
+								setting_id = "keybind_unmute_all",
+								type = "keybind",
+								default_value = {},
+								keybind_trigger = "pressed",
+								keybind_type = "function_call",
+								function_name = "cb_unmute_all",
+							},
+							{
 								setting_id = "include_voice_chat_in_master",
 								type = "checkbox",
 								default_value = true,
@@ -178,7 +186,7 @@ return {
 							{
 								setting_id = "enable_hot_mic_detector",
 								type = "checkbox",
-								default_value = true,
+								default_value = false,
 							},
 							{
 								setting_id = "hot_mic_threshold_seconds",

@@ -1,12 +1,13 @@
 ### [Toggle Sound](https://www.nexusmods.com/warhammer40kdarktide/mods/1288)
 
-Allows you to toggle off game sounds, all VC, or non-friends VC using menu toggles and keybinds. Includes hot mic detection with auto-mute and chat notifications.
+Allows you to toggle off game sounds, all VC, non-friends VC, or console players VC using menu toggles and keybinds. Includes hot mic detection with auto-mute and chat notifications.
 
 **Options:**
 
 **Sound**
 - Mute Master Sound
 - Toggle Master Sound (Hotkey)
+- Unmute All (Hotkey)
 - Include VC in Master Mute
 - Mute Music
 - Toggle Music (Hotkey)
@@ -32,14 +33,8 @@ Allows you to toggle off game sounds, all VC, or non-friends VC using menu toggl
 - Reset Hot Mic Mutes (Hotkey)
 
 **Chat Commands:**
-- `/mute` or `/mute all` - Toggle master sound
-- `/mute music` - Toggle music
-- `/mute sfx` - Toggle sound effects
-- `/mute vc` - Toggle all voice chat
-- `/mute nonfriends` - Toggle non-friends voice chat
-- `/mute console` - Toggle console players voice chat
-- `/mute reset` - Reset hot mic auto-mutes
-- `/mute help` - Show available commands
-*(Note: `/unmute` can also be used)*
+- `/mute`
+- `/unmute`
+- `/mute help`
 
 🔗 **Links:** [Source Code](https://github.com/MaddyMarv/Toggle-Sound) | [Nexus Mods Profile](https://www.nexusmods.com/profile/indicabunny) | [Support Me on Ko-fi](https://ko-fi.com/indicabunny)

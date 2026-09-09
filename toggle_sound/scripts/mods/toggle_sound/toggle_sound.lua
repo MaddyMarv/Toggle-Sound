@@ -115,6 +115,17 @@ local function _restore_all_sound()
 	Wwise.set_state("options_mute_all", "false")
 
 	local chat_manager = Managers.chat
+	local Vivox = rawget(_G, "Vivox")
+	if chat_manager and Vivox and Vivox.session_set_local_render_volume then
+		local channels = chat_manager.connected_voip_channels and chat_manager:connected_voip_channels()
+		if channels then
+			local render_vol = voip_vol <= 0.01 and 0 or math.lerp(25, 75, voip_vol / 100)
+			for session_handle, _ in pairs(channels) do
+				Vivox.session_set_local_render_volume(session_handle, render_vol)
+			end
+		end
+	end
+
 	if chat_manager and chat_manager.mic_volume_changed then
 		chat_manager:mic_volume_changed()
 	end
@@ -345,37 +356,50 @@ mod.on_unload = function()
 	_restore_all_sound()
 end
 
+mod.cb_unmute_all = function()
+	if not mod:is_enabled() then
+		return
+	end
+
+	mod:set("mute_master_sound", false, true)
+	mod:set("mute_music", false, true)
+	mod:set("mute_sfx", false, true)
+	mod:set("mute_all_voice_chat", false, true)
+	mod:set("mute_non_friends_voice_chat", false, true)
+	mod:set("mute_console_voice_chat", false, true)
+
+	_restore_all_sound()
+
+	if mod:get("sound_show_notifications") or mod:get("voice_chat_show_notifications") then
+		mod:echo_localized("msg_all_unmuted")
+	end
+end
+
 local function _handle_mute_command(subcommand)
 	subcommand = subcommand and string.lower(subcommand)
 
 	if not subcommand or subcommand == "" or subcommand == "all" or subcommand == "master" then
 		mod.cb_toggle_master_sound()
-	elseif subcommand == "music" then
-		mod.cb_toggle_music()
-	elseif subcommand == "sfx" then
-		mod.cb_toggle_sfx()
-	elseif subcommand == "vc" or subcommand == "voice" then
-		mod.cb_toggle_all_voice_chat()
-	elseif subcommand == "nonfriend" or subcommand == "nonfriends" or subcommand == "non-friends" or subcommand == "non_friends" or subcommand == "friends" then
-		mod.cb_toggle_non_friends_voice_chat()
-	elseif subcommand == "console" or subcommand == "consoles" or subcommand == "xbox" or subcommand == "psn" or subcommand == "ps5" then
-		mod.cb_toggle_console_voice_chat()
-	elseif subcommand == "reset" then
-		mod.cb_reset_hot_mics()
 	elseif subcommand == "help" then
-		mod:echo_localized("cmd_mute_help_header")
-		mod:echo_localized("cmd_mute_help_all")
-		mod:echo_localized("cmd_mute_help_music")
-		mod:echo_localized("cmd_mute_help_sfx")
-		mod:echo_localized("cmd_mute_help_vc")
-		mod:echo_localized("cmd_mute_help_nonfriends")
-		mod:echo_localized("cmd_mute_help_console")
-		mod:echo_localized("cmd_mute_help_reset")
-		mod:echo_localized("cmd_mute_help_help")
+		mod:echo(mod:localize("cmd_mute_help"))
 	else
-		mod:echo_localized("cmd_mute_unknown", subcommand)
+		mod:echo(mod:localize("cmd_mute_help"))
+	end
+end
+
+local function _handle_unmute_command(subcommand)
+	subcommand = subcommand and string.lower(subcommand)
+
+	if subcommand == "help" then
+		mod:echo(mod:localize("cmd_mute_help"))
+	else
+		mod.cb_unmute_all()
+		if not (mod:get("sound_show_notifications") or mod:get("voice_chat_show_notifications")) then
+			mod:echo_localized("msg_all_unmuted")
+		end
 	end
 end
 
 mod:command("mute", mod:localize("cmd_mute_desc"), _handle_mute_command)
-mod:command("unmute", mod:localize("cmd_mute_desc"), _handle_mute_command)
+mod:command("unmute", mod:localize("cmd_unmute_desc"), _handle_unmute_command)
+

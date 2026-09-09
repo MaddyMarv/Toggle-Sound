@@ -34,6 +34,12 @@ return {
 	keybind_mute_master_sound_description = {
 		en = "Hot key to toggle all game audio on or off.",
 	},
+	keybind_unmute_all = {
+		en = "Unmute All Keybind",
+	},
+	keybind_unmute_all_description = {
+		en = "Hot key to instantly unmute master sound, music, SFX, voice chat, and reset hot mic mutes.",
+	},
 	include_voice_chat_in_master = {
 		en = "Include VC in Master Mute",
 	},
@@ -226,37 +232,16 @@ return {
 	msg_hot_mics_reset = {
 		en = "[ToggleSound] All hot mic auto-mutes have been reset.",
 	},
+	msg_all_unmuted = {
+		en = "[ToggleSound] All sound, music, SFX, and voice chat unmuted.",
+	},
 	cmd_mute_desc = {
-		en = "Toggle sound, music, SFX, and voice chat.",
+		en = "Toggle sound on or off.",
 	},
-	cmd_mute_help_header = {
-		en = "[ToggleSound] Commands:",
+	cmd_unmute_desc = {
+		en = "Unmute all sound and voice chat.",
 	},
-	cmd_mute_help_all = {
-		en = "/mute [all] - Toggle Master Sound",
-	},
-	cmd_mute_help_music = {
-		en = "/mute music - Toggle Music",
-	},
-	cmd_mute_help_sfx = {
-		en = "/mute sfx - Toggle Sound Effects",
-	},
-	cmd_mute_help_vc = {
-		en = "/mute vc - Toggle All Voice Chat",
-	},
-	cmd_mute_help_nonfriends = {
-		en = "/mute nonfriends - Toggle Non-Friends Voice Chat",
-	},
-	cmd_mute_help_console = {
-		en = "/mute console - Toggle Console Players VC",
-	},
-	cmd_mute_help_reset = {
-		en = "/mute reset - Reset Hot Mic Auto-Mutes",
-	},
-	cmd_mute_help_help = {
-		en = "/mute help - Show available commands",
-	},
-	cmd_mute_unknown = {
-		en = "[ToggleSound] Unknown option '%s'. Type '/mute help' for options.",
+	cmd_mute_help = {
+		en = "Toggle Sound Commands:\n- /mute : Toggle master sound\n- /unmute : Unmute all sound and voice chat\n- /mute help : Show available commands",
 	},
 }
