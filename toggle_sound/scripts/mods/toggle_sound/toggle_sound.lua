@@ -423,4 +423,3 @@ end
 
 mod:command("mute", mod:localize("cmd_mute_desc"), _handle_mute_command)
 mod:command("unmute", mod:localize("cmd_unmute_desc"), _handle_unmute_command)
-
