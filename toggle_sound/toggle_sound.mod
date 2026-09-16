@@ -1,6 +1,6 @@
 return {
 	run = function()
-		fassert(rawget(_G, "new_mod"), "`toggle_sound` mod must be lower than DMF in load order.")
+		fassert(rawget(_G, "new_mod"), "`toggle_sound` encountered an error loading the Darktide Mod Framework.")
 
 		new_mod("toggle_sound", {
 			mod_script       = "toggle_sound/scripts/mods/toggle_sound/toggle_sound",
