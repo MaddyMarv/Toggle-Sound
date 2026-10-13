@@ -1,4 +1,4 @@
-﻿Allows you to toggle off game sounds, voice chat, or console players VC using menu toggles and keybinds. Includes hot mic detection with auto-mute and chat notifications.
+Allows you to toggle off game sounds, voice chat, or console players VC using menu toggles and keybinds. Includes hot mic detection with auto-mute and chat notifications.
 
 [b]Options:[/b]
 
@@ -30,10 +30,10 @@
 - Show Chat Notifications
 - Reset Hot Mic Mutes (Hotkey)
 
-[b]Chat Commands:[/b]
-- [b]/mute[/b] 
-- [b]/unmute[/b] 
-- [b]/mute help[/b]
+[b]Commands:[/b]
+- /mute - Toggle master sound
+- /unmute - Unmute all sound and voice chat
+- /mute help - Show available commands
 
 [b]Links:[/b]
 [url=https://github.com/MaddyMarv/Toggle-Sound]Source Code[/url] | [url=https://www.nexusmods.com/profile/indicabunny]Nexus Mods Profile[/url] | [url=https://ko-fi.com/indicabunny]Support Me on Ko-fi[/url]
