@@ -3,7 +3,8 @@
 
 Allows you to toggle off game sounds, voice chat, or console players VC using menu toggles and keybinds. Includes hot mic detection with auto-mute and chat notifications.
 
-**Options:**
+<details>
+<summary><b>Mod Settings / Commands</b></summary>
 
 **Sound**
 - Mute Master Sound
@@ -37,5 +38,6 @@ Allows you to toggle off game sounds, voice chat, or console players VC using me
 - `/mute` - Toggle master sound
 - `/unmute` - Unmute all sound and voice chat
 - `/mute help` - Show available commands
+</details>
 
 🔗 **Links:** [Source Code](https://github.com/MaddyMarv/Toggle-Sound) | [Nexus Mods Profile](https://www.nexusmods.com/profile/indicabunny) | [Support Me on Ko-fi](https://ko-fi.com/indicabunny)
