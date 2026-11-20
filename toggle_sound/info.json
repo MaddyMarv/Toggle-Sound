@@ -8,11 +8,10 @@
         "kofi": "https://ko-fi.com/indicabunny"
     },
     "description": "Allows you to toggle off game sounds, voice chat, or console players VC using menu toggles and keybinds.",
-    "order": {
-        "require": [],
-        "this_before": [],
-        "this_after": []
+    "dependencies": {
+        "required": [],
+        "self_after": [],
+        "self_before": []
     },
     "localization": {}
 }
-

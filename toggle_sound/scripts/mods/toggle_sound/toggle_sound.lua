@@ -339,7 +339,14 @@ end
 mod.on_setting_changed = function(setting_id)
 	if setting_id == "mute_master_sound" or setting_id == "include_voice_chat_in_master" then
 		_apply_master_sound()
-	elseif setting_id == "mute_voice_chat" or setting_id == "voice_chat_ignore_friends" or setting_id == "mute_console_voice_chat" or setting_id == "console_voice_chat_ignore_friends" or setting_id == "mute_all_voice_chat" or setting_id == "mute_non_friends_voice_chat" then
+	elseif
+		setting_id == "mute_voice_chat"
+		or setting_id == "voice_chat_ignore_friends"
+		or setting_id == "mute_console_voice_chat"
+		or setting_id == "console_voice_chat_ignore_friends"
+		or setting_id == "mute_all_voice_chat"
+		or setting_id == "mute_non_friends_voice_chat"
+	then
 		_apply_voice_chat_volume()
 	elseif setting_id == "mute_music" then
 		_apply_music()
