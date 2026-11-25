@@ -31,9 +31,8 @@ Allows you to toggle off game sounds, voice chat, or console players VC using me
 - Reset Hot Mic Mutes (Hotkey)
 
 [b]Commands:[/b]
-- /mute - Toggle master sound
+- /mute - Toggle master sound (/mute help shows available commands)
 - /unmute - Unmute all sound and voice chat
-- /mute help - Show available commands
 [/spoiler]
 
 [b]Links:[/b]

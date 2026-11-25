@@ -3,7 +3,7 @@ return {
 		en = "Toggle Sound",
 	},
 	mod_description = {
-		en = "Allows you to toggle off game sounds, voice chat, or console players VC using menu toggles and keybinds.",
+		en = "Allows you to toggle off game sounds, voice chat, or console players VC using menu toggles and keybinds. Includes hot mic detection with auto-mute and chat notifications.",
 	},
 
 	tab_sound = {
